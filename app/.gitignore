@@ -1,0 +1,26 @@
+# node
+node_modules/
+npm-debug.log*
+
+# frontend
+frontend/node_modules/
+frontend/dist/
+
+# backend uploads (runtime data)
+backend/uploads/
+
+# database
+*.db
+*.sqlite
+
+# electron build
+dist/
+win-unpacked/
+
+# OS
+.DS_Store
+Thumbs.db
+
+build/
+dist-packaged/
+*.exe

@@ -1,0 +1,318 @@
+/* Combos Page Specific Styles */
+
+/* Modal Improvements */
+.modal-content.large {
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form Layout */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.input-field,
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Image Uploader */
+.image-upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg-secondary);
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-upload-area:hover {
+    border-color: var(--color-accent);
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Products Selection */
+.selected-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: var(--color-bg-secondary);
+    border-radius: 8px;
+    min-height: 50px;
+}
+
+.selected-item {
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 0 4px;
+}
+
+.qty-controls button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.qty-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.btn-remove {
+    margin-right: 5px;
+    color: var(--color-danger);
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.products-selector h4 {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+
+.products-list-compact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.product-chip {
+    padding: 6px 12px;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-primary);
+}
+
+.product-chip:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+/* Card Styling for Combos */
+.product-card-full {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-elevated);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-full:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+}
+
+.card-description {
+    padding: 0 16px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.combo-items {
+    padding: 10px 16px;
+    background-color: var(--color-bg-secondary);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.combo-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+.combo-items li {
+    margin-bottom: 2px;
+}
+
+.price-info {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.current-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+.discount-badge {
+    background-color: var(--color-danger);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.status-badge.active {
+    background-color: rgba(16, 185, 129, 0.9);
+    color: white;
+}
+
+.status-badge.inactive {
+    background-color: rgba(107, 114, 128, 0.9);
+    color: white;
+}
+
+/* Responsive Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,655 @@
+.expenses-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.expenses-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.today {
+    border-right: 4px solid #3b82f6;
+}
+
+.stat-card.month {
+    border-right: 4px solid #ef4444;
+}
+
+.stat-card.selected-month {
+    border-right: 4px solid #10b981;
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.month-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.month-btn {
+    background: var(--color-bg-secondary);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.month-btn:hover {
+    background: var(--color-border);
+}
+
+.month-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    min-width: 120px;
+    text-align: center;
+}
+
+.expenses-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.expenses-table th,
+.expenses-table td {
+    padding: var(--spacing-md);
+    text-align: right;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.expenses-table th {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.expenses-table tr:last-child td {
+    border-bottom: none;
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+.card-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Expenses.css - Light Theme Enhancements */
+.expenses-page {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom scrollbar for table if needed */
+.overflow-hidden::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.overflow-hidden::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.overflow-hidden::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.overflow-hidden::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Modal Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-in {
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN FOR EXPENSES PAGE */
+/* ============================================ */
+
+/* Tablet & Smaller Laptops (1024px to 768px) */
+@media (max-width: 1024px) {
+    .expenses-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .expenses-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .stat-card {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .expenses-table {
+        font-size: 0.9rem;
+    }
+
+    .expenses-table th,
+    .expenses-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Tablets (768px to 480px) */
+@media (max-width: 768px) {
+    .expenses-page {
+        padding: 0;
+    }
+
+    .expenses-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-sm);
+        border-right-width: 3px;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .stat-value {
+        font-size: 1rem;
+    }
+
+    .month-selector {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+
+    .month-btn {
+        padding: var(--spacing-xs);
+        min-width: 32px;
+    }
+
+    .month-name {
+        min-width: 100px;
+        font-size: 0.8rem;
+    }
+
+    /* Stack table as cards on mobile */
+    .card {
+        margin: var(--spacing-md);
+    }
+
+    .card-header {
+        padding: var(--spacing-md);
+    }
+
+    .card-header h3 {
+        font-size: 1rem;
+    }
+
+    .expenses-table {
+        font-size: 0.85rem;
+    }
+
+    .expenses-table th,
+    .expenses-table td {
+        padding: var(--spacing-sm);
+    }
+
+    .override-hidden {
+        overflow-x: auto;
+    }
+}
+
+/* Mobile Phones (480px and smaller) */
+@media (max-width: 480px) {
+    .expenses-page {
+        padding: 0;
+        height: 100%;
+    }
+
+    .expenses-stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .stat-card {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+        border-right-width: 3px;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+
+    .stat-content {
+        flex: 1;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .stat-value {
+        font-size: 0.95rem;
+    }
+
+    .month-selector {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+        padding: 0 var(--spacing-sm);
+    }
+
+    .month-btn {
+        padding: var(--spacing-xs);
+        min-width: 28px;
+        height: 28px;
+    }
+
+    .month-name {
+        min-width: 80px;
+        font-size: 0.75rem;
+        padding: 0 var(--spacing-xs);
+    }
+
+    .card {
+        margin: var(--spacing-sm);
+        border-radius: var(--radius-md);
+    }
+
+    .card-header {
+        padding: var(--spacing-sm);
+    }
+
+    .card-header h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    /* Stack table vertically on small mobile */
+    .expenses-table {
+        font-size: 0.8rem;
+        display: block;
+        width: 100%;
+    }
+
+    .expenses-table thead {
+        display: none;
+    }
+
+    .expenses-table tbody,
+    .expenses-table tr,
+    .expenses-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .expenses-table tr {
+        margin-bottom: var(--spacing-md);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-sm);
+    }
+
+    .expenses-table td {
+        padding: var(--spacing-sm) 0;
+        text-align: right;
+        position: relative;
+        padding-right: 50%;
+        border: none;
+    }
+
+    .expenses-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        right: var(--spacing-sm);
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: var(--color-text-secondary);
+    }
+
+    .center-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+        text-align: center;
+    }
+
+    .overflow-hidden::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .overflow-hidden::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+    }
+}
+
+/* ============================================ */
+/* DARK MODE STYLES FOR EXPENSES PAGE */
+/* ============================================ */
+
+[data-theme="dark"] .expenses-page {
+    background-color: #0f172a;
+}
+
+[data-theme="dark"] .expenses-stats-grid {
+    margin-bottom: var(--spacing-xl);
+}
+
+[data-theme="dark"] .stat-card {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(96, 165, 250, 0.1);
+    border-right-color: inherit;
+}
+
+[data-theme="dark"] .stat-card.today {
+    border-right: 4px solid #60a5fa;
+}
+
+[data-theme="dark"] .stat-card.month {
+    border-right: 4px solid #f87171;
+}
+
+[data-theme="dark"] .stat-card.selected-month {
+    border-right: 4px solid #6ee7b7;
+}
+
+[data-theme="dark"] .stat-icon {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+}
+
+[data-theme="dark"] .stat-label {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .stat-value {
+    color: var(--color-text-primary);
+}
+
+/* Month Selector */
+[data-theme="dark"] .month-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .month-btn:hover {
+    background: #475569;
+    border-color: #64748b;
+}
+
+[data-theme="dark"] .month-name {
+    color: #f1f5f9;
+}
+
+/* Table Styles */
+[data-theme="dark"] .expenses-table {
+    background-color: #1e293b;
+}
+
+[data-theme="dark"] .expenses-table th {
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-border);
+    font-weight: 600;
+}
+
+[data-theme="dark"] .expenses-table td {
+    border-bottom-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .expenses-table tr {
+    background-color: var(--color-bg-secondary);
+}
+
+[data-theme="dark"] .expenses-table tbody tr:hover {
+    background-color: var(--color-bg-hover);
+}
+
+[data-theme="dark"] .expenses-table tbody tr:last-child td {
+    border-bottom-color: var(--color-border);
+}
+
+/* Text Colors */
+[data-theme="dark"] .text-error {
+    color: var(--color-error);
+}
+
+[data-theme="dark"] .text-success {
+    color: var(--color-success);
+}
+
+[data-theme="dark"] .text-warning {
+    color: var(--color-warning);
+}
+
+/* Card Header */
+[data-theme="dark"] .card-header {
+    background: var(--color-bg-primary);
+    border-bottom-color: var(--color-border);
+}
+
+[data-theme="dark"] .card-header h3 {
+    color: var(--color-text-primary);
+}
+
+/* Center Content */
+[data-theme="dark"] .center-content {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+/* Input Fields in Filters */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="date"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] select {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] input::placeholder {
+    color: var(--color-text-muted);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Buttons */
+[data-theme="dark"] button {
+    transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .btn-primary {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: var(--color-bg-hover);
+    border-color: var(--color-border-light);
+}
+
+[data-theme="dark"] .btn-danger {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+[data-theme="dark"] .btn-danger:hover {
+    background-color: var(--color-error);
+    color: white;
+}
+
+/* Scrollbar in Dark Mode */
+[data-theme="dark"] .overflow-hidden::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-theme="dark"] .overflow-hidden::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+[data-theme="dark"] .overflow-hidden::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+[data-theme="dark"] .overflow-hidden::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+}
+
+/* Modal/Dialog in Dark Mode */
+[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .modal-content {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .modal-header {
+    background: var(--color-bg-primary);
+    border-bottom-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .modal-close {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .modal-close:hover {
+    color: var(--color-text-primary);
+    background-color: rgba(239, 68, 68, 0.1);
+}

@@ -1,0 +1,207 @@
+.activation-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    background-color: #020617;
+    /* Very dark blue/black */
+    font-family: var(--font-sans);
+}
+
+.activation-card {
+    width: 100%;
+    max-width: 440px;
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activation-header {
+    background: linear-gradient(to right, #1e3a8a, #0f172a);
+    padding: var(--spacing-xl);
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+.activation-icon-wrapper {
+    margin: 0 auto var(--spacing-md);
+    background: rgba(59, 130, 246, 0.1);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.activation-icon {
+    color: #3b82f6;
+}
+
+.activation-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--spacing-xs);
+}
+
+.activation-subtitle {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+.activation-body {
+    padding: var(--spacing-xl);
+}
+
+.activation-field-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.activation-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.activation-machine-id-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.activation-machine-id-code {
+    flex: 1;
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: #10b981;
+    font-family: var(--font-mono);
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-size: 1.125rem;
+    user-select: all;
+}
+
+.activation-copy-btn {
+    padding: var(--spacing-md);
+    background-color: #1e293b;
+    color: white;
+    border-radius: var(--radius-md);
+    border: 1px solid #334155;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.activation-copy-btn:hover {
+    background-color: #334155;
+}
+
+.activation-hint {
+    font-size: 0.75rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: var(--spacing-sm);
+}
+
+.activation-divider {
+    height: 1px;
+    background-color: #1e293b;
+    margin: var(--spacing-lg) 0;
+}
+
+.activation-input {
+    width: 100%;
+    background-color: #020617;
+    border: 1px solid #334155;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: white;
+    font-family: var(--font-mono);
+    text-align: center;
+    font-size: 1.125rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.activation-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.activation-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    font-size: 0.875rem;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.activation-submit-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    color: white;
+    background-color: #2563eb;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+.activation-submit-btn:hover:not(:disabled) {
+    background-color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+.activation-submit-btn:disabled {
+    background-color: #1e293b;
+    color: #475569;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.activation-footer {
+    background-color: #020617;
+    padding: var(--spacing-md);
+    text-align: center;
+    border-top: 1px solid #1e293b;
+}
+
+.activation-footer-text {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http://localhost:3001; connect-src 'self' http://localhost:3001; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;"
+    />
+    <title>نظام إدارة المطعم</title>
+  </head>
+  <body>
+    <script>
+      window.onerror = function (message, source, lineno, colno, error) {
+        const errorDiv = document.createElement("div");
+        errorDiv.style.position = "fixed";
+        errorDiv.style.top = "0";
+        errorDiv.style.left = "0";
+        errorDiv.style.width = "100%";
+        errorDiv.style.backgroundColor = "red";
+        errorDiv.style.color = "white";
+        errorDiv.style.padding = "20px";
+        errorDiv.style.zIndex = "9999";
+        errorDiv.innerText =
+          "Error: " + message + "\nAt: " + source + ":" + lineno + ":" + colno;
+        document.body.appendChild(errorDiv);
+        console.error("Captured Error:", error);
+      };
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
